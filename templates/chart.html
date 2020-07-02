@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Report</title>
+  <script src="{{ url_for('static',filename='Chart.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='core.js') }}"  ></script>
+  <script src="{{ url_for('static',filename='charts.js') }}"  ></script>
+  <script src="{{ url_for('static',filename='animated.js') }}" ></script>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='chart_styles.css') }}">
+</head>
+
+<body>
+
+    <div class="element">
+      <h1>Detailed Analysis of Customers</h1>
+      <img class="center" src="{{ url_for('static',filename='analysis.png') }}" alt="Analysis Logo" width="300px" height="300px">
+    </div>
+
+    
+
+    <div id="clv_chart" class="charts"></div>    
+    <script type="text/javascript" src="{{ url_for('static',filename='clv_chart.js') }}" ></script>
+    <script type="text/javascript">
+        clvFunc({{clv_data|tojson|safe}});
+    </script>
+
+  
+
+            
+    <div>
+      <canvas id="countries_chart" class="charts"></canvas>
+    </div>    
+    <script type="text/javascript" src="{{ url_for('static',filename='countries_chart.js') }}" ></script>
+    <script type="text/javascript">
+        countriesFunc({{countries_data|tojson|safe}});
+    </script>
+
+
+
+
+    <div>
+      <canvas id="monthly_revenue" class="charts"></canvas>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static',filename='monthly_revenue.js') }}" ></script>
+    <script type="text/javascript">
+        monthlyRevenueFunc({{monthly_revenue|tojson|safe}});
+    </script>
+
+
+
+
+    <div>
+    <canvas id="monthly_active" class="charts"></canvas>
+    </div>=
+    <script type="text/javascript" src="{{ url_for('static',filename='monthly_active.js') }}" ></script>
+    <script type="text/javascript">
+    monthlyActiveFunc({{monthly_active|tojson|safe}});
+    </script>
+
+
+
+    
+    <div>
+      <canvas id="new_exist" class="charts"></canvas>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static',filename='new_exist.js') }}" ></script>
+    <script type="text/javascript">
+        newExistFunc({{new_exist|tojson|safe}});
+    </script>
+
+
+        
+</body>
+</html>
